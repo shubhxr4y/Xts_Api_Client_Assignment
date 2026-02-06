@@ -1,5 +1,6 @@
 namespace XtsApiClient.Config;
 
+// Centralized configuration values for XTS API connection and authentication
 public static class XtsConfig
 {
     public const string BaseUrl = "https://xts.rmoneyindia.co.in:3000";

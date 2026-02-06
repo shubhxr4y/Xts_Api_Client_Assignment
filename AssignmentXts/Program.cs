@@ -9,7 +9,7 @@ var client = HttpClientFactory.Create();
 var auth = new AuthService(client);
 await auth.LoginAsync();
 
-// 🚨 STOP EXECUTION IF LOGIN FAILED
+// STOP EXECUTION IF LOGIN IS FAILED
 if (string.IsNullOrEmpty(auth.Token))
 {
     Console.WriteLine("Login failed. Market data & socket calls skipped.");
@@ -41,5 +41,3 @@ if (fno != null)
     Console.WriteLine("FNO DATA:");
     Console.WriteLine(fno);
 }
-
-// Socket intentionally disabled until REST flow is stable

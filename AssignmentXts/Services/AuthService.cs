@@ -5,6 +5,7 @@ using XtsApiClient.Config;
 
 namespace XtsApiClient.Services;
 
+// Handles authentication and token setup for XTS API
 public class AuthService
 {
     private readonly HttpClient _client;
@@ -16,6 +17,7 @@ public class AuthService
         _client = client;
     }
 
+    // Logs in to the API and stores the auth token
     public async Task LoginAsync()
     {
         var payload = new
@@ -45,9 +47,9 @@ public class AuthService
         dynamic json = JsonConvert.DeserializeObject(
             await response.Content.ReadAsStringAsync()
         );
-
+        
+        // Save token and attach it to future requests
         Token = json.result.token;
-
         _client.DefaultRequestHeaders.Remove("Authorization");
         _client.DefaultRequestHeaders.Add("Authorization", Token);
 

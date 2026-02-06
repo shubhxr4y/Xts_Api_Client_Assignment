@@ -18,11 +18,11 @@ public class MarketDataService
         DateTime from,
         DateTime to)
     {
-        // ✅ Convert dates to epoch seconds (REQUIRED by XTS API)
+        //  Convert dates to epoch seconds (REQUIRED by XTS API)
         long startEpoch = new DateTimeOffset(from).ToUnixTimeSeconds();
         long endEpoch = new DateTimeOffset(to).ToUnixTimeSeconds();
 
-        // ✅ Build correct OHLC URL
+        //  Build correct OHLC URL
         string url =
             $"apimarketdata/instruments/ohlc?" +
             $"exchangeSegment=NSECM" +
